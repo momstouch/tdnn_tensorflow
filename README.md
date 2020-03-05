@@ -1,13 +1,12 @@
 # tdnn_tensorflow
-tdnn (time delayed neural network) tensorflow implementation
+TDNN (time delayed neural network) Tensorflow implementation
 
-have tested on tensorflow 1.3/1.4
+have tested on Tensorflow 1.3/1.4
 
-## Reference
+## References
 
-https://www.danielpovey.com/files/2015_interspeech_multisplice.pdf
-
-https://github.com/SiddGururani/Pytorch-TDNN
+1. https://www.danielpovey.com/files/2015_interspeech_multisplice.pdf
+2. https://github.com/SiddGururani/Pytorch-TDNN
 
 
 ![tdnn](tdnn)
