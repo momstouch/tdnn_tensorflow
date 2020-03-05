@@ -59,19 +59,10 @@ def tdnn(
         weights = None,
         use_bias : bool = True,
         bias = None,
-        trainable : bool = True,
-        use_orthogonal_constraint : bool = False
+        trainable : bool = True
         ):
     #
     # the original code from https://github.com/SiddGururani/Pytorch-TDNN
-    # our conventional pre-trained model does not suit for a model by TDNN()
-    # because the shapes of kernels are different.
-    # If you want to struct a model using this function and restore from
-    # pre-trained models by "asr_encoder()", you are supposed to reshape
-    # and re-save it.
-    # the model by TDNN() is about 10-sec slower than conventional one
-    # per 1000 train steps. It may come from calulation every feature node
-    # which would even be discarded next layer but it's for flexibility.
     #
 
     def check_valid_context(context : list):
@@ -126,11 +117,6 @@ def tdnn(
             shape = [f_shape[0], f_shape[1], -1]
             )
 
-    constraint_func = None
-    if use_orthogonal_constraint:
-        constraint_func = lambda kernel: semi_orthogonal_constraint(
-                weights = kernel, alpha = -1.0)
-
     if not weights:
         weights = tf.contrib.layers.xavier_initializer()
 
@@ -148,7 +134,6 @@ def tdnn(
             kernel_initializer = weights,
             kernel_regularizer = None,
             bias_initializer = bias,
-            kernel_constraint = constraint_func,
             trainable = trainable
             )
 

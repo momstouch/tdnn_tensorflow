@@ -21,7 +21,6 @@ end_layer = layer_dict["input_layer"] = tf.Variable(
             1.0
             )
         )
-print(end_layer)
 
 for idx, (layer_name, context) in enumerate(zip(tdnn_names, tdnn_context)):
     with ops.name_scope(name = layer_name):
