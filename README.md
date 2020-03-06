@@ -1,5 +1,5 @@
 # tdnn_tensorflow
-TDNN (time delayed neural network) Tensorflow implementation
+TDNN (time delay neural network) Tensorflow implementation
 
 have tested on Tensorflow 1.3/1.4
 
